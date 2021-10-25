@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; 
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularAir2021';
-
+  @ViewChild('reports') reports: any;
+  @ViewChild('charts') charts: any;
+  get allChecked():[]{
+    let arr = [];
+    if()
+    return arguments;
+  }
 }

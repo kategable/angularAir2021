@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
+
   needsRenew = true;
   get renewDate(): string | null {
     let date = new Date();
     let dd = this.datePipe.transform(date.setDate(date.getDate() + 1));
     return dd;
+  }
+  has(appSettings: string[]) {
+    return true;
   }
   constructor(private datePipe: DatePipe) {}
 }

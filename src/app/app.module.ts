@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RenewDirective } from './renew.directive';
+import { SettingsDirective } from './settings.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RenewDirective
+    RenewDirective,
+    SettingsDirective
   ],
   imports: [
     BrowserModule,
