@@ -1,3 +1,4 @@
+import { FiltersDirective } from './filters.directive';
 import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,8 @@ import { SettingsDirective } from './settings.directive';
   declarations: [
     AppComponent,
     RenewDirective,
-    SettingsDirective
+    SettingsDirective,
+    FiltersDirective
   ],
   imports: [
     BrowserModule,

@@ -428,18 +428,17 @@
 
 
   <div class="badge2">
-    <input type="checkbox" id="hasReports"  value="hasReports" #reports>
-    <label for="hasReports"> Show me reports</label><br>
+    <input type="checkbox" id="hasReports"  value="hasReports" (change)="ssnChanged($event)">
+    <label for="hasReports"> Show me SSN</label><br>
 
-    <input type="checkbox" id="hasReports"  value="hasCharts" #charts>
-    <label for="hasReports"> Show me charts</label><br>
+    <input type="checkbox" id="hasReports"  value="hasCharts" (change)="dobChanged($event)">
+    <label for="hasReports"> Show me DOB</label><br>
   </div>
-  <div class="badge" *appSettings="['hasReports', 'hasAdvancedReports']">
-    <h4>This user has access to reports</h4>
+  <div class="badge" *appFilters="filters">
     <ul>
-      <li><a>Reports</a></li>
-      <li><a>Advanced Reports</a></li>
+      <li *ngFor="let f of filters">{{f}}</li>
     </ul>
+    <h4>This user has access to secure filters</h4>
   </div>
 </div>
 
