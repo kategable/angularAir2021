@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,12 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   needsRenew = true;
+  async needsRenewFlag(): Promise<boolean>{
+    //return Promise.resolve(true);
+    let response = await axios.get('/assets/flag.txt');
+    console.log(response);
+    return response.data;
+  }
   get renewDate(): string | null {
     let date = new Date();
     let dd = this.datePipe.transform(date.setDate(date.getDate() + 1));

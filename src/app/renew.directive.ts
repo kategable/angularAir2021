@@ -1,15 +1,19 @@
 import { UserService } from './user.service';
 import { DatePipe } from '@angular/common';
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appRenew]',
 })
-export class RenewDirective  {
-  constructor(el:ElementRef,renderer:Renderer2, userservice: UserService) {
-    if(userservice.needsRenew){
-      renderer.addClass(el.nativeElement, 'renew');
-      renderer.setProperty(el.nativeElement,'textContent',`Renew by ${userservice.renewDate} `)
+export class RenewDirective  implements OnInit{
+  constructor(private readonly el:ElementRef,private readonly renderer:Renderer2, private readonly userservice: UserService) {
+
+  }
+  async ngOnInit(): Promise<void> {
+
+    if (await this.userservice.needsRenewFlag()) {
+      this.renderer.addClass(this.el.nativeElement, 'renew');
+      this.renderer.setProperty(this.el.nativeElement, 'textContent', `Renew by ${this.userservice.renewDate} `);
     }
-     }
+  }
 }
